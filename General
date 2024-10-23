@@ -1,0 +1,31 @@
+Sub SelectAllTables()
+    Dim tbl As Table
+    
+    For Each tbl In ActiveDocument.Tables
+        tbl.Range.Editors.Add wdEditorEveryone
+    Next
+    
+    ActiveDocument.SelectAllEditableRanges (wdEditorEveryone)
+    ActiveDocument.DeleteAllEditableRanges (wdEditorEveryone)
+    
+End Sub
+
+Sub SelectAllTextBoxes()
+    ActiveDocument.Shapes.SelectAll
+End Sub
+
+Sub TextBoxesMoveTop()
+    Dim sp As Shape
+    
+    For Each sp In ActiveDocument.Shapes
+        sp.Top = sp.Top - 10
+    Next
+End Sub
+
+Sub TextBoxesMoveDown()
+    Dim sp As Shape
+    
+    For Each sp In ActiveDocument.Shapes
+        sp.Top = sp.Top + 10
+    Next
+End Sub
